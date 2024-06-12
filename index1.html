@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Filter</title>
+    <link rel="stylesheet" href="filtro.css">
+    <link rel="stylesheet" href="ORI.css">
+</head>
+<body>
+    <h2>Buscar por filtro</h2>
+    <input type="text" id="searchInput" placeholder="Buscar productos...">
+    <div id="products">
+        <div class="card product">
+            <figure>
+                <img src="./Originales/zap2.jpg">
+            </figure>
+            <div class="contenido-card">
+                <h3>Nike Air Force 1</h3>
+                <h3>Precio: $ 4000</h3>
+                <h3>Descripción:</h3>
+                <p>Suela exterior de caucho con circulo de pivote de aros y diseño de estrella agrega estilo tradicional, tracción y durabilidad.</p>
+                <a href="./producto2.html">Leer Màs</a>
+            </div>
+        </div>
+        <div class="card product">
+            <figure>
+                <img src="./clo/zap8.jpg">
+            </figure>
+            <div class="contenido-card">
+                <h3>Nime Brazer</h3>
+                <h3>Precio: $ 10000</h3>
+                <h3>Descripción:</h3>
+                <a href="clo8.html">Leer Màs</a>
+            </div>
+        </div>
+        <!-- Agregar más productos aquí -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById('searchInput');
+            const products = document.querySelectorAll('.product'); // Selecciona todos los elementos con la clase 'product'
+
+            searchInput.addEventListener('keyup', function() {
+                const filter = searchInput.value.toLowerCase();
+
+                products.forEach(function(product) {
+                    const productName = product.querySelector('h3').textContent.toLowerCase(); // Nombre del producto
+                    const productDescription = product.querySelector('p').textContent.toLowerCase(); // Descripción del producto
+
+                    if (productName.includes(filter) || productDescription.includes(filter)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

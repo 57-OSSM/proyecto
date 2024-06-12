@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./stilos.css">
+    <link rel="stylesheet" href="./ORI.css">
+    <link rel=stylesheet href="./bootstrap-5.0.2-dist/css/bootstrap.min.css"><script src="./bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./catalogo.html">Catálogo</a></li>
+                <li><a href="./favoritos.html">Favoritos</a></li>
+                <li><a href="agregar.html">Agregar</a></li>
+                <li><a href="./filtro.html">Filtro</a></li>
+                <button onclick="window.location.href='./registro.php'" type="button" class="btn btn-outline-success" style="margin-left: 50px;">Registrarse</button>
+
+            </ul>
+            
+        </nav>
+        
+        <div class="search-container">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Buscar productos.." name="search">
+                <input type="submit" value="Buscar">
+            </form>
+            
+                
+        </div>
+    </header>
+    <br>
+    <div class="body2" style="text-align: center;">
+        <h4 class="move">Mas Populares</h4>
+    </div>
+    <div class="body">
+        <div class="card">
+            <figure>
+                <img src="./Originales/zap1.jpg">
+            </figure>
+            <div class="contenido-card">
+                <h4>Jordan Retro 1 </h4>
+                <h3>Precio: $ 4000</h3>
+                <h3>Descripción:</h3>
+                <p>Silueta clásica para basquetball, con una combinación de color azul y texturas que aportan una esencia fresca y moderna, son ideales para explotar tu maximo estilo de Streetwear. </p>
+                <a href="./producto1.html">Leer Màs</a>
+            </div>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="./Originales/zap2.jpg">
+            </figure>
+            <div class="contenido-card">
+                <h4>Nike Air Force 1</h4>
+                <h3>Precio: $ 4000</h3>
+                <h3>Descripción:</h3>
+                <p>Suela exterior de caucho con circulo de pivote de aros y color negro y naranja diseño de estrella agrega estilo tradicional, traccion y durabilidad, color naranja </p>
+                <a href="./producto2.html">Leer Màs</a>
+            </div>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="./Originales/zap3.jpg">
+            </figure>
+            <div class="contenido-card">
+                <h4>Jordan Retro 1</h4>
+                <h3>Precio: $ 4000</h3>
+                <h3>Descripción:</h3>
+                <p>Sneakers cuenta con la tecnología Unidad Air Sole una suela echa de goma que aporta pisadas extra suaves y una gran traccion sin importar la superficie. </p>
+                <a href="./producto3.html">Leer Màs</a>
+            </div>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="./Originales/zap2.jpg">
+            </figure>
+            <div class="contenido-card">
+                <h4>Nike Air Force 1 </h4>
+                <h3>Precio: $ 4000</h3>
+                <h3>Descripción:</h3>
+                <p> Suela exterior de caucho con circulo de pivote de aros y diseño de estrella agrega estilo tradicional, tracción y durabilidad.</p>
+                <a href="./producto2.html">Leer Màs</a>
+            </div>
+        </div>
+       
+        
+        
+    </div>
+        
+  <script>
+        
+       document.getElementById("search-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario
+
+            var searchTerm = document.getElementById("search-input").value.toLowerCase(); // Obtén el término de búsqueda en minúsculas
+            
+            var cards = document.querySelectorAll(".card"); // Obtén todas las tarjetas de productos
+
+            cards.forEach(function(card) {
+                var productName = card.querySelector("h3").innerText.toLowerCase(); // Obtén el nombre del producto en minúsculas
+                var productDescription = card.querySelector("p").innerText.toLowerCase(); // Obtén la descripción del producto en minúsculas
+
+                // Comprueba si el término de búsqueda está presente en el nombre o la descripción del producto
+                if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+                    card.style.display = "block"; // Muestra la tarjeta si coincide con el término de búsqueda
+                } else {
+                    card.style.display = "none"; // Oculta la tarjeta si no coincide con el término de búsqueda
+                }
+            });
+        });
+        
+    </script>
+    
+</body>
+</html>
